@@ -1,6 +1,6 @@
 <?php
  
-define('BOT_TOKEN', '402972641:AAHDcqfl9_WOaGtpAyTAETqigrElyCpm9aY');
+define('BOT_TOKEN', 'BOTTOKEN');
 define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
  
 function apiRequestWebhook($method, $parameters) {
@@ -141,12 +141,6 @@ function processMessage($message) {
       apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'Tanggal saat ini adalah ' . date("d F Y")));
     } else if (strpos($text, "/waktu") === 0) {
       apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'Waktu saat ini adalah ' . date("H:i:s")));
-    } else if (strpos($text, "/about") === 0) {
-      apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'Saya dibuat oleh Mas Denny :) @Dennyrz'));
-    } else if (strpos($text, "/ganteng") === 0) {
-      apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'Tentu saja Mas Denny :) @Dennyrz'));
-    } else if (strpos($text, "/istrimasdenny") === 0) {
-      apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'Si jelek Maya Mpus :) @Dennyrz'));
     } else {
       apiRequestWebhook("sendMessage", array('chat_id' => $chat_id, "reply_to_message_id" => $message_id, "text" => 'Perintah tidak ada.'));
     }
@@ -156,7 +150,7 @@ function processMessage($message) {
 }
  
  
-define('WEBHOOK_URL', 'https://testing.karyaciptainternusa.com/bot.php');
+define('WEBHOOK_URL', 'YOUR LINK');
  
 if (php_sapi_name() == 'cli') {
   // if run from console, set or delete webhook
